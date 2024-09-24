@@ -62,6 +62,9 @@ public class LinkedListDeque<T> {
 
 
     public T removeFirst() {
+        if(isEmpty()){
+            return null;
+        }
         T temp = first.item;
         first.prev = null;
         first = first.next;
@@ -70,6 +73,9 @@ public class LinkedListDeque<T> {
     }
 
     public T removeLast() {
+        if(isEmpty()){
+            return null;
+        }
         TNode p = sentinel;
         while (p.next != null) {
             p = p.next;
@@ -83,6 +89,9 @@ public class LinkedListDeque<T> {
 
     public T get(int index) {
         TNode p = sentinel.next;
+        if (index < 0 || index >= size) {
+            return null; // 或者抛出异常
+        }
         for (int i = 0; i < size; i++) {
             if (i == index) {
                 return p.item;

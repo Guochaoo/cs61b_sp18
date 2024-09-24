@@ -1,9 +1,10 @@
+//sqList在java里以ArrayDeque形式实现
 public class ArrayDeque<T> {
     private int size;
     private T[] items;
 
     public ArrayDeque() {
-        items = (T[]) new Object[8];
+        items = (T[]) new Object[8];//泛型
         size = 0;
     }
 
