@@ -18,7 +18,7 @@ public class ArrayDeque<T> {
     }
 
     public void addFirst(T item) {
-        if (size == items.length-1) {
+        if (size == items.length) {
             resize(size * 2);
         }
         System.arraycopy(items, 0, items, 1, size);
@@ -55,7 +55,7 @@ public class ArrayDeque<T> {
 
         T temp = items[0];
         T[] a = (T[]) new Object[size + 1];
-        System.arraycopy(items, 1, a, 0, size);
+        System.arraycopy(items, 1, a, 0, size-1);
         items = a;
         size -= 1;
         return temp;
